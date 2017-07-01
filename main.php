@@ -1,17 +1,42 @@
 <?php
+$servername = '127.0.0.1';
+$username = 'root';
+$password = 'root';
 readFile('index.html');
-if( $_POST["regionId"] || $_POST["regionName"] ) {
-     echo $_POST["regionId"];
-     echo $_POST["regionName"];
-     exit();
-   }
-if( $_POST["propertyId"] || $_POST["propertyName"] || $_POST["propertyBrand"] || $_POST["propertyPhone"] || $_POST["propertyUrl"] ) {
-     echo $_POST["propertyId"];
-     echo $_POST["propertyName"];
-     echo $_POST["propertyBrand"];
-     echo $_POST["propertyPhone"];
-     echo $_POST["propertyUrl"];
 
-     exit();
-   }
+$conn = new mysqli($servername, $username, $password, 'QuoreTest');
+print_r($_POST);
+if($_POST["addRegion"] ) {
+	$Name = $_POST['Name'];
+
+  $sql = "INSERT INTO Region
+				VALUES (Id, '{$Name}')";
+
+	if ($conn->query($sql) === TRUE) {
+    echo "Created Succesfully";
+	} else {
+    echo "Error: " . $conn->error;
+	}
+
+  exit();
+}
+
+if($_POST["addProperty"] ) {
+	$Name = $_POST['Name'];
+	$Brand = $_POST['Brand'];
+	$Phone = $_POST['Phone'];
+	$Url = $_POST['Url'];
+
+	$sql = "INSERT INTO Property
+				 VALUES (Id, '{$Name}', '{$Brand}', '{$Phone}', '{$Url}')";
+
+   if ($conn->query($sql) === TRUE) {
+    echo "Created Succesfully";
+	} else {
+    echo "Error: " . $conn->error;
+	}
+	exit();
+ }
+
+$conn->close();
 ?>
