@@ -9,11 +9,10 @@ $conn = new mysqli($servername, $username, $password, 'QuoreTest');
 $sql = "SELECT * FROM Region";
 $result = $conn->query($sql);
 
-
 if($result->num_rows > 0){
 	while($row = $result->fetch_assoc()) {
 		$html->find('#regionData',0)->innertext .= 
-		"<tr>
+		"<tr class='regionRow'>
 		<td> {$row['Id']} </td>
 		<td> {$row['Name']}</td>
 		<td> {$html->find('#optionsBtn',0)} </td>
@@ -25,9 +24,8 @@ $result = $conn->query($sql);
 
 if($result->num_rows > 0){
 	while($row = $result->fetch_assoc()) {
-    // echo "id: " . $row["id"]. " - Name: " . $row["Name"]. "- Brand:" .$row["Brand"]. "- Phone:" . $row["Phone"]. "- Url:" . $row["Url"] . "<br>";
     $html->find('#propertyData',0)->innertext .= 
-		"<tr>
+		"<tr class='propertyRow'>
 		<td> {$row['Id']} </td>
 		<td> {$row['Name']}</td>
 		<td> {$row['Brand']}</td>
