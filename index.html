@@ -34,10 +34,11 @@
                     <form class="form" action="main.php" method="post">
                         <div class="form__group">
                             <label>Name</label>
-                            <input type="text" name="Name"/>
+                            <input type="text" id="regionNameInput" name="Name"/>
                         </div>
                         <div class="form__group">
-                            <input type="submit" value="Add region" name="addRegion"/>
+                            <input type="hidden" id="regionId" name="Id">
+                            <input type="submit" id="regionBtn" value="Add region" name="addRegion"/>
                         </div>
                     </form>
                 </section>
@@ -60,22 +61,23 @@
                     <form class="form" action="main.php" method="post">
                         <div class="form__group">
                             <label>Name</label>
-                            <input type="text" name="Name" />
+                            <input type="text" id="propertyNameInput" name="Name" />
                         </div>
                         <div class="form__group">
                             <label>Brand</label>
-                            <input type="text" name="Brand" />
+                            <input type="text" id="brandInput" name="Brand" />
                         </div>
                         <div class="form__group">
                             <label>Phone</label>
-                            <input type="text" name="Phone" />
+                            <input type="text" id="phoneInput" name="Phone" />
                         </div>
                         <div class="form__group">
                             <label>Url</label>
-                            <input type="text" name="Url" />
+                            <input type="text" id="UrlInput" name="Url" />
                         </div>
                         <div class="form__group">
-                            <input type="submit" value="Add Property" name="addProperty"/>
+                            <input type="hidden" id="propertyId" name="Id">
+                            <input type="submit" id="propertyBtn" value="Add Property" name="addProperty"/>
                         </div>
                     </form>
                 </section>

@@ -59,6 +59,34 @@ if($_POST["addProperty"] ) {
 	$conn->query($sql);
 	header('Location: '. 'main.php');
  }
+ //update entries
+ if($_POST["updateRegion"] ) {
+	$Name = $_POST['Name'];
+	$Id = $_POST['Id'];
+  $sql = "UPDATE Region
+				 SET Name ='{$Name}'
+				 WHERE Id = {$Id}";
+
+
+	$conn->query($sql);
+	header('Location: '. 'main.php');
+}
+
+if($_POST["updateProperty"] ) {
+	$Name = $_POST['Name'];
+	$Brand = $_POST['Brand'];
+	$Phone = $_POST['Phone'];
+	$Url = $_POST['Url'];
+	$Id = $_POST['Id'];
+  $sql = "UPDATE Property
+				 SET Name ='{$Name}', Brand = '{$Brand}', Phone = '{$Phone}', URL = '{$Url}'
+				 WHERE Id = {$Id}";
+
+
+	$conn->query($sql);
+	header('Location: '. 'main.php');
+}
+
 echo $html;
 
 
