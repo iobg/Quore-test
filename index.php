@@ -8,7 +8,6 @@ $conn = new mysqli($servername, $username, $password, 'QuoreTest');
 //retrive data
 $sql = "SELECT * FROM Region";
 $result = $conn->query($sql);
-print_r($_POST);
 if($result->num_rows > 0){
 	while($row = $result->fetch_assoc()) {
 		$html->find('#regionData',0)->innertext .= 
@@ -44,6 +43,8 @@ if($_POST["addRegion"] ) {
 				VALUES (Id, '{$Name}')";
 
 	$conn->query($sql);
+	header("Location: /");
+	
 }
 
 if($_POST["addProperty"] ) {
@@ -55,11 +56,11 @@ if($_POST["addProperty"] ) {
 	$sql = "INSERT INTO Property
 				 VALUES (Id, '{$Name}', '{$Brand}', '{$Phone}', '{$Url}', {$FullService})";
 
-		if($conn->query($sql) ==TRUE){
+		$conn->query($sql);
+	  header("Location: /");
+
 
 }
-else echo $conn->error;
- }
  //update entries
  if($_POST["updateRegion"] ) {
 	$Name = $_POST['Name'];
@@ -69,6 +70,8 @@ else echo $conn->error;
 				 WHERE Id = {$Id} ";
 
 	$conn->query($sql);
+	header("Location: /");
+
 }
 
 if($_POST["updateProperty"] ) {
@@ -84,6 +87,8 @@ if($_POST["updateProperty"] ) {
 
 
 	$conn->query($sql);
+	header("Location: /");
+
 }
 
 if($_POST['deleteType'] && $_POST['deleteType']== 'property'){
@@ -91,6 +96,7 @@ if($_POST['deleteType'] && $_POST['deleteType']== 'property'){
 	$sql = "DELETE FROM Property
 					WHERE Id = {$Id}";
 	$conn->query($sql);
+	header("Location: /");
 
 
 }
@@ -99,8 +105,9 @@ if($_POST['deleteType'] && $_POST['deleteType']== 'region'){
 	$Id = $_POST['idToDelete'];
 	$sql = "DELETE FROM Region
 					WHERE Id = {$Id}";
-	$conn->query($sql);
 
+	$conn->query($sql);
+	header("Location: /");
 }
 
 echo $html;

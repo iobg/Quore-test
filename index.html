@@ -38,10 +38,10 @@
                     <form class="form" action="index.php" method="post">
                         <div class="form__group">
                             <label>Name</label>
-                            <input type="text" id="regionNameInput" name="Name"/>
+                            <input type="text" id="regionNameInput" name="Name" required/>
                         </div>
                         <div class="form__group">
-                            <input type="hidden" id="regionId" name="Id">
+                            <input type="hidden" id="regionId" name="Id" required>
                             <input type="submit" id="regionBtn" value="Add region" name="addRegion"/>
                         </div>
                     </form>
@@ -65,23 +65,23 @@
                     <form class="form" action="index.php" method="post">
                         <div class="form__group">
                             <label>Name</label>
-                            <input type="text" id="propertyNameInput" name="Name" />
+                            <input type="text" id="propertyNameInput" name="Name" required />
                         </div>
                         <div class="form__group">
                             <label>Brand</label>
-                            <input type="text" id="brandInput" name="Brand" />
+                            <input type="text" id="brandInput" name="Brand" required />
                         </div>
                         <div class="form__group">
                             <label>Phone</label>
-                            <input type="text" id="phoneInput" name="Phone" />
+                            <input type="text" id="phoneInput" name="Phone" required />
                         </div>
                         <div class="form__group">
                             <label>Url</label>
-                            <input type="text" id="UrlInput" name="Url" />
+                            <input type="Url" id="UrlInput" name="Url" required/>
                         </div>
                         <div class="form__group">
                             <label>Full Service?</label>
-                            <select id="fullServiceInput" name="isFullService" >
+                            <select id="fullServiceInput" name="isFullService" required>
                                 <option value="1">Yes</option>
                                 <option value="0">No</option>
                             </select>
