@@ -19,6 +19,7 @@ $('.editBtn').click(e=>{
 		$('#brandInput').val(columns[2].innerText)
 		$('#phoneInput').val(columns[3].innerText)
 		$('#UrlInput').val(columns[4].innerText)
+		$('#fullServiceInput').val(columns[5].innerText)
 		btn.val('Update Property')
 		btn.attr('name',"updateProperty")
 	}

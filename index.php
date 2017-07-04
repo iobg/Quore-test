@@ -51,11 +51,14 @@ if($_POST["addProperty"] ) {
 	$Brand = $_POST['Brand'];
 	$Phone = $_POST['Phone'];
 	$Url = $_POST['Url'];
-
+	$FullService = (int)$_POST['isFullService'];
 	$sql = "INSERT INTO Property
-				 VALUES (Id, '{$Name}', '{$Brand}', '{$Phone}', '{$Url}')";
+				 VALUES (Id, '{$Name}', '{$Brand}', '{$Phone}', '{$Url}', {$FullService})";
 
-	$conn->query($sql);
+		if($conn->query($sql) ==TRUE){
+
+}
+else echo $conn->error;
  }
  //update entries
  if($_POST["updateRegion"] ) {
@@ -65,11 +68,7 @@ if($_POST["addProperty"] ) {
 				 SET Name ='{$Name}'
 				 WHERE Id = {$Id} ";
 
-
-	if($conn->query($sql) ==TRUE){
-
-}
-else echo $conn->error;
+	$conn->query($sql);
 }
 
 if($_POST["updateProperty"] ) {
@@ -78,8 +77,9 @@ if($_POST["updateProperty"] ) {
 	$Phone = $_POST['Phone'];
 	$Url = $_POST['Url'];
 	$Id = $_POST['Id'];
+	$FullService = (int)$_POST['isFullService'];
   $sql = "UPDATE Property
-				 SET Name ='{$Name}', Brand = '{$Brand}', Phone = '{$Phone}', URL = '{$Url}'
+				 SET Name ='{$Name}', Brand = '{$Brand}', Phone = '{$Phone}', URL = '{$Url}', Service={$FullService}
 				 WHERE Id = {$Id}";
 
 
