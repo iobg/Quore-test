@@ -2,8 +2,8 @@ $('.editBtn').click(e=>{
 	let row = $(e.target.closest('tr'));
 
 	if(row.hasClass('regionRow')){
-		var btn = $('#regionBtn');
-		var columns = row.children()
+		let btn = $('#regionBtn');
+		let columns = row.children()
 		$('#regionId').val(columns[0].innerText)
 		$('#regionNameInput').val(columns[1].innerText)
 		btn.val('Update Region')
@@ -12,8 +12,8 @@ $('.editBtn').click(e=>{
 	}
 
 	if(row.hasClass('propertyRow')){
-		var btn = $('#propertyBtn');
-		var columns = row.children()
+		let btn = $('#propertyBtn');
+		let columns = row.children()
 		$('#propertyId').val(columns[0].innerText)
 		$('#propertyNameInput').val(columns[1].innerText)
 		$('#brandInput').val(columns[2].innerText)
@@ -26,12 +26,17 @@ $('.editBtn').click(e=>{
 
 $('.deleteBtn').click(e=>{
 	let row = $(e.target.closest('tr'));
+	let columns = row.children()
 
 	if(row.hasClass('regionRow')){
-		console.log('delet')
+		$('#deleteType').val('region')
+		$('#idToDelete').val(columns[0].innerText)
+		$('.delete').submit();
 	}
 
 	if(row.hasClass('propertyRow')){
-		console.log('this')
+		$('#deleteType').val('property')
+		$('#idToDelete').val(columns[0].innerText)
+		$('.delete').submit();
 	}
 })

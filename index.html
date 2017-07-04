@@ -17,6 +17,10 @@
         <div hidden>
         <span class="btn btn__small" id="optionsBtn">Options<span class="icon"><svg  viewBox="0 0 40 24" ><g id="Iconography" transform="translate(-740.000000, -998.000000)" fill="#000000"><path d="M749.343664,1022.42292 C745.269268,1026.56389 751.380863,1032.77535 755.455259,1028.63438 L770.734247,1013.10573 C772.421918,1011.39048 772.421918,1008.60952 770.734247,1006.89427 L755.455259,991.36562 C751.380863,987.224647 745.269268,993.436107 749.343664,997.57708 L761.566855,1010 L749.343664,1022.42292 Z" id="Carat_down" transform="translate(760.000000, 1010.000000) rotate(90.000000) translate(-760.000000, -1010.000000) "></path></g></svg></span><div class="dropdown"><a class="deleteBtn">Delete</a><a class ="editBtn">Edit</a></div></span></div>
         <div class="wrapper">
+            <form class="delete form hidden" action="index.php" name="delete" method="post"> 
+                <input type="hidden" id ="idToDelete" name="idToDelete">
+                <input type="hidden" id="deleteType" name="deleteType">
+            </form>
             <div class="container">
                 <section>
                     <h1>Regions</h1>
@@ -31,7 +35,7 @@
                         <tbody class="tbody" id ="regionData">
                         </thead>
                     </table>
-                    <form class="form" action="main.php" method="post">
+                    <form class="form" action="index.php" method="post">
                         <div class="form__group">
                             <label>Name</label>
                             <input type="text" id="regionNameInput" name="Name"/>
@@ -58,7 +62,7 @@
                         <tbody class="tbody" id='propertyData'>
                         </tbody>
                     </table>
-                    <form class="form" action="main.php" method="post">
+                    <form class="form" action="index.php" method="post">
                         <div class="form__group">
                             <label>Name</label>
                             <input type="text" id="propertyNameInput" name="Name" />
